@@ -1,19 +1,30 @@
 from lines import *
+import random
 import time
 import sys
+import os
 
 def main():
-    creator = LineCreator(2)
+    random.seed()
+    n = random.randint(1,15)
+    speed = random.uniform(0.05,0.2)
+    creator = LineCreator(n)
     lines = creator.Createlines()
     currenty = 0
+    os.system('clear')
     while True:
-        time.sleep(0.05)
+        size = os.get_terminal_size()
+        time.sleep(speed)
         string = ""
+        sys.stdout.write("\x1B[H")
         for i in range(len(lines)):
             lines[i].update()
-            sys.stdout.write("\x1b7\x1b[%d;%df%s\x1b8" % (currenty,lines[i].pos,f"{lines[i]}"))
+            sys.stdout.write(f"\x1B[{currenty};{lines[i].pos}H{lines[i]}")
             sys.stdout.flush()
-        currenty += 1
+        if currenty == size[1]:
+            sys.stdout.write(f"\n")
+        else:
+            currenty += 1
 
 if __name__ == "__main__":
     main()
