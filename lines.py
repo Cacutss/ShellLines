@@ -1,6 +1,5 @@
 import random
 import os
-import time
 
 class LineCreator():
     def __init__(self,amount):

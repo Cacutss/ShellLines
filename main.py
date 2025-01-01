@@ -6,7 +6,7 @@ import os
 
 def main():
     random.seed()
-    n = random.randint(1,15)
+    n = random.randint(1,25)
     speed = random.uniform(0.05,0.2)
     creator = LineCreator(n)
     lines = creator.Createlines()
