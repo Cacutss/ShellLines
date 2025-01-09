@@ -6,8 +6,8 @@ import os
 
 def main():
     random.seed()
-    n = random.randint(1,50)
-    speed = 0.01
+    n = random.randint(1,30)
+    speed = random.uniform(0.01,0.05)
     creator = LineCreator(n)
     lines = creator.Createlines()
     currenty = 0
