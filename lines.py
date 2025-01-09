@@ -13,9 +13,12 @@ class LineCreator():
 
 class Line():
     def __init__(self):
+        if random.randint(0,1) == 0:
+            self.color = random.randint(91,97)
+        else:
+            self.color = random.randint(31,37)
         self.limit = os.get_terminal_size()
         self.pos = random.randint(0,self.limit[0])
-        self.color = random.randint(31,38)
         self.currentstr = "|"
 
     def update(self):
